@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  gap: 400px;
+
+  align-items: stretch;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2a363b;
+  position: absolute;
+  top: 0;
+}

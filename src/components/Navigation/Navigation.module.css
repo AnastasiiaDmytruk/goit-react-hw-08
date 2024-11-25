@@ -1,0 +1,22 @@
+
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Розподіл елементів по краях */
+    align-items: center; /* Вирівнювання по вертикалі */
+    padding: 0 16px; /* Відступи всередині навбару */
+    background-color: #f8f9fa; /* Наприклад, світлий фон */
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+  }
+  
+  .active {
+    font-weight: bold;
+    color: #007bff; 
+  }
+
+  
+  
