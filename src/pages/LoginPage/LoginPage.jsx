@@ -56,4 +56,4 @@ const LoginPage = () => {
   );
 };
 
-export defau
+export default LoginPage;

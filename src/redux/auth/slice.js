@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   },
   token: null,
   isLoggedIn: false,
-  isRefreshing: true,
+  isRefreshing: false,
 };
 
 const handlePending = (state) => {

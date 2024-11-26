@@ -5,14 +5,8 @@ export const LogInSchema = Yup.object({
     .email("Invalid email format")
     .required("Email is required"),
   password: Yup.string()
-  .max(12, "Password lenght must be maximum 12 characters!")
-  .required("Password is required"),
-    // .min(8, "Password lenght must be at least 8 characters!")
-    // .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
-    // .matches(
-    //   /[!@#$%^&*(),.?":{}|<>]/,
-    //   "Password must contain at least one special character"
-    // )
+    .max(12, "Password lenght must be maximum 12 characters!")
+    .required("Password is required"),
 });
 
 export const RegistrationSchema = Yup.object({
@@ -26,10 +20,5 @@ export const RegistrationSchema = Yup.object({
   password: Yup.string()
     .min(8, "Password lenght must be at least 8 characters!")
     .max(12, "Password lenght must be maximum 12 characters!")
-    // .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
-    // .matches(
-    //   /[!@#$%^&*(),.?":{}|<>]/,
-    //   "Password must contain at least one special character"
-    // )
     .required("Password is required"),
 });
