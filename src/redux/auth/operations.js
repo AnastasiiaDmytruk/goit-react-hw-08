@@ -17,6 +17,7 @@ export const apiRegisterUser = createAsyncThunk(
   "auth/register",
   async (formData, thunkAPI) => {
     try {
+
       const { data } = await authInstance.post("/users/signup", formData);
       setToken(data.token);
       console.log(data);
@@ -27,10 +28,13 @@ export const apiRegisterUser = createAsyncThunk(
   }
 );
 
+
 export const apiLoginUser = createAsyncThunk(
   "auth/login",
   async (formData, thunkAPI) => {
-    try {
+    try {console.log("Auth instance headers:", authInstance.defaults.headers);
+
+      console.log("Login formData:", formData);
       const { data } = await authInstance.post("/users/login", formData);
       setToken(data.token);
       return data;
