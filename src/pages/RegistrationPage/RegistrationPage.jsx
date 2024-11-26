@@ -61,16 +61,4 @@ const RegistrationPage = () => {
             name="password"
             component="span"
           />
-          <button className={styles.button} type="submit">
-            Register
-          </button>
-        </Form>
-      </Formik>
-    </div>
-  );
-};
-
-
-
-
-export default RegistrationPage
+          <button className={styles.button} 

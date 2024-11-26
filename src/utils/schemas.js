@@ -31,4 +31,5 @@ export const RegistrationSchema = Yup.object({
     //   /[!@#$%^&*(),.?":{}|<>]/,
     //   "Password must contain at least one special character"
     // )
-    .required("Password is r
+    .required("Password is required"),
+});

@@ -1,24 +1,25 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+// import axios from "axios";
 
-export const authInstance = axios.create({
-  baseURL: "https://connections-api.goit.global/",
-});
+// export const authInstance = axios.create({
+//   baseURL: "https://connections-api.goit.global/",
+// });
+import { apiInstance } from "../instance/instance";
 
 export const setToken = (token) => {
-  authInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
+  apiInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 export const clearToken = () => {
-  authInstance.defaults.headers.common.Authorization = "";
+  apiInstance.defaults.headers.common.Authorization = "";
 };
 
 export const apiRegisterUser = createAsyncThunk(
   "auth/register",
   async (formData, thunkAPI) => {
     try {
-
-      const { data } = await authInstance.post("/users/signup", formData);
+      const { data } = await apiInstance.post("/users/signup", formData);
+      console.log(data);
       setToken(data.token);
       console.log(data);
       return data;
@@ -28,14 +29,14 @@ export const apiRegisterUser = createAsyncThunk(
   }
 );
 
-
 export const apiLoginUser = createAsyncThunk(
   "auth/login",
   async (formData, thunkAPI) => {
-    try {console.log("Auth instance headers:", authInstance.defaults.headers);
+    try {
+      console.log("Auth instance headers:", apiInstance.defaults.headers);
 
       console.log("Login formData:", formData);
-      const { data } = await authInstance.post("/users/login", formData);
+      const { data } = await apiInstance.post("/users/login", formData);
       setToken(data.token);
       return data;
     } catch (error) {
@@ -54,10 +55,8 @@ export const apiGetCurrentUser = createAsyncThunk(
     }
 
     try {
-      clearToken()
-      console.log("data:"  , data);
-      const { data } = await authInstance.get("/users/current");
-      setToken(data.token);
+      setToken(token);
+      const { data } = await apiInstance.get("/users/current");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -69,7 +68,7 @@ export const apiLogoutUser = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
     try {
-      const { data } = await authInstance.post("/users/logout");
+      const { data } = await apiInstance.post("/users/logout");
       setToken(data.token);
       return data;
     } catch (error) {
